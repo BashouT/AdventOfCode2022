@@ -16,11 +16,7 @@ public class dayThree
             var first = line.Substring(0, (line.Length / 2));
             var second = line.Substring((line.Length / 2), (line.Length / 2));
 
-            var intersect = first.Intersect(second);
-
-            var repeatedChar = intersect.First();
-            
-            var priorityValue = GetPriorityValue(repeatedChar);
+            var priorityValue = first.Intersect(second).Sum(g => GetPriorityValue(g));
             sum += priorityValue;
         }
 
