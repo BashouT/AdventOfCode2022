@@ -23,12 +23,7 @@ public class dayFour
         {
             Setup(line);
 
-            if (isWithin(elfOne, elfTwo))
-            {
-                numberOfPairs++;
-                continue;
-            }
-            else if (isWithin(elfTwo, elfOne))
+            if (elfOne.Contains(elfTwo) || elfTwo.Contains(elfOne))
             {
                 numberOfPairs++;
                 continue;
@@ -55,17 +50,14 @@ public class dayFour
         Console.WriteLine(numberOfOverlap.ToString());
     }
 
-    private bool isWithin(ElfAssignment toCheck, ElfAssignment against)
-    {
-        return toCheck.Min <= against.Min && toCheck.Max <= against.Max;
-    }
-
     private class ElfAssignment
     {
         public int Min { get; set; }
         public int Max { get; set; }
 
         public bool Overlaps(ElfAssignment comparison) => Min <= comparison.Max && Max >= comparison.Min;
+
+        public bool Contains(ElfAssignment comparison) => comparison.Min >= Min && comparison.Max <= Max;
 
         public ElfAssignment(string range)
         {
