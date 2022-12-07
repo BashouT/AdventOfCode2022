@@ -38,7 +38,6 @@ public class dayFive
             
             _craneFacility.CreateTower(i, crates);
         }
- 
     }
 
     public void PartOne()
@@ -165,6 +164,5 @@ public class dayFive
                 AddCrate(id.ToString());
             }
         }
-
     }
 }
